@@ -29,3 +29,35 @@ except socket.gaierror:
 except socket.error:
     print("Cannot connect to server")
     sys.exit()
+
+# /////////////////////////////////////////////////////////////////////////////
+
+from socket import *
+
+def conScan(tgtHost, tgtPort):
+     try:
+        connskt * socket(AF_INET, SOCK_STREAM)
+        connskt.connect((tgtHost, tgtPort))
+        print(tgtPort + ' Open')
+        connskt.close()
+    except:
+        print(tgtPort + ' Closed')
+
+def portScan(tgtHost, tgtPorts):
+    try:
+        tgtIP = gethostbyname(tgtHost)
+    except:
+        print("Cannot be resolve " + tgtPort)
+        return
+    try:
+        tgtName = gethostbyaddr(tgtIP)
+        print('Results for ' + tgtName[0])
+    except:
+        print('Results for ' + tgtIP)
+    setdefaulttimeout(1)
+    for tgtPort in tgtPorts:
+        print('Scanning: ' + tgtPort)
+        conScan(tgtHost, int(tgtPorts))
+
+    # if __name__ == '__main__':
+    #     portScan({Url}, [{Ports}])
