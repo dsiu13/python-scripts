@@ -36,7 +36,7 @@ from socket import *
 
 def conScan(tgtHost, tgtPort):
      try:
-        connskt * socket(AF_INET, SOCK_STREAM)
+        connskt = socket(AF_INET, SOCK_STREAM)
         connskt.connect((tgtHost, tgtPort))
         print(tgtPort + ' Open')
         connskt.close()
